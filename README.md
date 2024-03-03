@@ -47,3 +47,25 @@ I think the basic grasp of C++ will serve me a lot in other course work, especia
 
 ## How did you make this program maintainable, readable, and adaptable?
 I made this program maintainable, readable, and adaptable by keeping it simple. It is a single class that stores the grocery item list with a private map data member to store the word frequencies. I think you could have a GroceryItem class to store objects with more information or metadata later on, but it would be premature to build this functionality in from the start.
+
+# CS340 Project 2: AAC Dashboard
+
+## How do you write programs that are maintainable, readable, and adaptable? Especially consider your work on the CRUD Python module from Project One, which you used to connect the dashboard widgets to the database in Project Two. What were the advantages of working in this way? How else could you use this CRUD Python module in the future?
+
+My approach to writing programs that are maintainable, readable, and adaptable, is to keep it simple. I think there's a tendency to over-engineer solutions to problems which results in code that is complex and maybe over-optimized. I approach this by writing code to handle only exactly what needs to be done, and for instance writing error handling I will handle the specific errors I know I might encounter and actually want to handle, while letting the rest bubble up through the python exception handler. You can always add more error handling later, instead of writing a large function with overly complex error handling now.
+
+The CRUD module was important to write in a simple and composable manner, as I needed to edit it to handle some new cases in project 2 vs. project 1. An example was modifying my read function in the CRUD module the handle being able to query all of the results in the database when passed an empty dictionary, which was necessary for the dashboard widget table. My original query checked that the input was not an empty dictionary to avoid returning the entire database, so modifying this was a simple operation of removing the extra check functionality.
+
+## How do you approach a problem as a computer scientist? Consider how you approached the database or dashboard requirements that Grazioso Salvare requested. How did your approach to this project differ from previous assignments in other courses? What techniques or strategies would you use in the future to create databases to meet other client requests?
+
+I approach problems as a computer scientist by looking at things in terms of inputs and outputs. All functions (mathematical and in CS) take inputs, do operations, and produce outputs. By defining a bunch of places where I know I have a specific input,and want a specific output, all that remains is finding the most appropriate way to implement that functionality in the functions/code.
+
+This project differed from other classes as it is the first time I've had to deal with data in a database, which is very dynamic and results in having to write the input handling pieces of code in a different way, thinking more about the attributes of the data and not the hardcoded data itself, as the underlying data might change, but the 'schema' generally remains fixed (in this class).
+
+One strategy I would use in the future to create databases to meet other client requests is to start by examining the data and what operations I will need to do with it. While MongoDB is 'schemaless', organzing the data in an efficient manner means we can more efficiently access what we need and improve performance. By examining all the data and making prototypes of how it may be used or accessed we can test how to best write the full suite of code that may access the data for the application in question.
+
+## What do computer scientists do, and why does it matter? How would your work on this type of project help a company, like Grazioso Salvare, to do their work better?
+
+Computer scientists and programmers are force multipliers, their work is most often used to simplify, or automate processes that would normally be difficult for a human to accomplish, or take an inordinate amount of time, or be tedious to the point a human doing them could result in many errors, while a piece of well tested code can be reliabile in providing the same functionality day after day, performing actions that might take a human weeks by hand in seconds.
+
+This project is an example of a small prototype, as it only has a table and a couple other widgets with filters that are very specific to the project. While this could be used to help the company quickly sort and view those specific animals, the real power comes from being able to extend the existing code and add more features easily later. For instance we could build search functionality that can look for ad-hoc sets of query data instead of extremely specific ones (essentially making a user-friendly way to 'query' the database for people who are not computer scienists). This would allow employees or others to easily view the AAC data.
